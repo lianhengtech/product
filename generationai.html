@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            max-width: 694px;
         }
 
         .generation {
@@ -172,7 +173,7 @@
 
         .background-img {
             position: relative;
-            width: 80%;
+            width: 90%;
             border-radius: 15px;
             object-fit: cover;
         }
@@ -185,8 +186,8 @@
             position: absolute;
             font-family: 'Courier New';
             border-radius: 25px;
-            right: 330px;
-            bottom: 300px;
+            bottom: 240px;
+            right: 190px;
         }
 
         .container-box {
@@ -353,6 +354,73 @@
             left: 0;
             right: 0;
         }
+
+        .works-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .work-item {
+            width: 300px;
+            border: #fdfdfdef solid 5px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .work-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-item img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .work-item p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #141414;
+            padding: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            width: 600px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 75, 43, 0.5);
+        }
+        
+        #document {
+            color: #f4f4f4;
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-family: 'Verdana';
+        }
         
         
     </style>
@@ -399,7 +467,7 @@
                     </div>
                     <div class="key-feature-b">
                         <div class="img-box" style="padding-top: 10px;">
-                            <img src="./assets/generationai_img/robot.gif" alt="avocado" class="background-img">
+                            <img src="./assets/generationai/generationai_img/robot.gif" alt="avocado" class="background-img">
                             <div class="text-box-b">
                                 <h2 style="color: #695442;">Upscale Texture</h2>
                                 <p style="color: #A0A8AD;">Generates higher resolution texture with added detail and clarity.</p>
@@ -506,19 +574,48 @@
                 <div class="tutorial">
                     <h1>Tutorials</h1>
                     <div class="video">
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/6RXGANPcZpY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+                        <iframe  style="width: 100%;" loading="lazy" src="https://www.youtube.com/embed/6RXGANPcZpY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
                     </div>
+                    <button onclick="window.open('https://www.mornday.com/index.php/docs/generation-ai/', '_blank')" >
+                        <h1 id="document">go to Generation AI Manual</h1>
+                    </button>
                     
                 </div>
                 <div class="tutorial">
                     <h1>Our Related Work</h1>
-                    <div class="video">
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/4S8ExcGJZZo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/Ra7RXnGPF9c" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/iHUZqf-lZ9I" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <iframe loading="lazy" src="https://www.youtube.com/embed/WkW5y9mqDlg" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+                    <div class="works-container">
+                        <div class="work-item">
+                            <a href="https://blendermarket.com/products/together-ai" target="_blank">
+                                <img src="./assets/motionai/motionai_img/togetherai.png" alt="Work 1">
+                                <p>Together Ai: All-In-One Ai Toolbox</p>
+                            </a>
+                        </div>
+                        <div class="work-item">
+                            <a href="https://blendermarket.com/products/motionai" target="_blank">
+                                <img src="./assets/generationai/generationai_img/motionai.png" alt="Work 2">
+                                <p>Motion Ai: State-Of-The-Art Ai Motion Capture Solution</p>
+                            </a>
+                        </div>
+                        <div class="work-item">
+                            <a href="https://blendermarket.com/products/depth-ai" target="_blank">
+                                <img src="./assets/motionai/motionai_img/depthai.png" alt="Work 3">
+                                <p>Depth Ai: Advanced Ai Depth Estimation Solution</p>
+                            </a>
+                        </div>
+                        <div class="work-item">
+                            <a href="https://blendermarket.com/products/material-ai" target="_blank">
+                                <img src="./assets/motionai/motionai_img/materialai.png" alt="Work 4">
+                                <p>Material Ai: Pbr Material Generator</p>
+                            </a>
+                        </div>
+                        <div class="work-item">
+                            <a href="https://blendermarket.com/products/edge-ai" target="_blank">
+                                <img src="./assets/motionai/motionai_img/edgeai.png" alt="Work 5">
+                                <p>Edge AI: Your Image Segmentation Master in Blender</p>
+                            </a>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -527,14 +624,14 @@
         
         <footer class="footer">
             <div class="footer-icons">
-                <a href="https://discord.com" target="_blank" class="icon-link">
-                    <img src="./assets/generationai/generationai_img/discord-icon.svg" alt="Discord" class="icon-img">
+                <a href="https://discord.gg/7VRmstPvsP" target="_blank" class="icon-link">
+                    <img src="./assets/motionai/motionai_img/discord-icon.svg" alt="Discord" class="icon-img">
                 </a>
-                <a href="https://yourdoclink.com" target="_blank" class="icon-link">
-                    <img src="./assets/generationai/generationai_img/document (2).svg" alt="YouTube" class="icon-img">
+                <a href="https://www.mornday.com/index.php/docs/motionai/motion-ai-manual-v2-0-0/" target="_blank" class="icon-link">
+                    <img src="./assets/motionai/motionai_img/document (2).svg" alt="YouTube" class="icon-img">
                 </a>
-                <a href="https://youtube.com" target="_blank" class="icon-link">
-                    <img src="./assets/generationai/generationai_img/youtube-icon.svg" alt="Document" class="icon-img">
+                <a href="https://www.youtube.com/watch?v=km2R-Vo6mDY" target="_blank" class="icon-link">
+                    <img src="./assets/motionai/motionai_img/youtube-icon.svg" alt="Document" class="icon-img">
                 </a>
             </div>
         </footer>

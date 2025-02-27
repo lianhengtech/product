@@ -11,17 +11,18 @@
             padding: 0;
             background-color: #ffffff;
             color: #333;
+            max-width: 694px;
         }
 
         .motionai {
             max-width: 900px;
+            width: 100%;
             margin: 40px auto;
             padding: 20px;
             background: #000000;
             border-radius: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
-
 
         .comments h1,
         .news h1{
@@ -291,7 +292,7 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
-            width: 800px;
+            width: 500px;
         }
 
         .introduces button:hover {
@@ -304,6 +305,10 @@
             font-size: 36px;
             margin-bottom: 15px;
             font-family: 'Verdana';
+        }
+
+        a {
+            text-decoration: none;
         }
 
         .footer {
@@ -331,11 +336,12 @@
             filter: blur(5px);
             position: absolute;
             object-fit: cover;
+            width: 694px;
         }
 
         .upper-img {
             height: 80%;
-            width: 80%;
+            width: 90%;
             position: relative;
             border-radius: 15px;
             object-fit: cover;
@@ -358,8 +364,7 @@
             color: #f9f9f9;
             position: absolute;
             bottom: 10px;
-            right: 90px;
-            width: 500px;
+            right: 40px;
             font-family: 'Courier New';
         }
 
@@ -367,9 +372,15 @@
             color: #f9f9f9;
         }
 
+        .text-box p {
+            width: 300px;
+            bottom: 10px;
+            right: 40px;
+        }
+
         .introduces .video iframe{
             border: none;
-            width: 650px;
+            width: 600px;
             margin-top: -140px;
             position: relative;
             z-index: 1;
@@ -442,6 +453,41 @@
 
         .tutorial {
             justify-items: center;
+        }
+
+        .works-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .work-item {
+            width: 300px;
+            border: #fdfdfdef solid 5px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .work-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-item img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .work-item p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
         }
 
 
@@ -603,9 +649,7 @@
                 </div>
 
                 <div class="new">
-                    <div class="new-text">We're excited to announce the release of Motion AI Pro V2, featuring the new LH II algorithm. 
-                        LH II algorithm introduces support for capturing spine and neck movements, making your animations smoother and more realistic. 
-                        The GIF below highlights the significant improvements in motion fluency between LH II and the earlier LH I algorithm.
+                    <div class="new-text">To capture spine and neck movements, your model must include the corresponding bones in its armature. If your model has an armature structure similar to the one shown in the image below, you can use Motion AI Pro V2 without hesitation.
                     </div>
                     <img src="./assets/motionai/motionai_img/bones.png"/>
                 </div>
@@ -650,11 +694,37 @@
             </div>
             <div class="tutorial">
                 <h1>Our Related Work</h1>
-                <div class="video">
-                    <iframe loading="lazy" src="https://www.youtube.com/embed/tcJCQBQAIok" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe loading="lazy" src="https://www.youtube.com/embed/324PquPvp90" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe loading="lazy" src="https://www.youtube.com/embed/kY-7lkRyr2k" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+                <div class="works-container">
+                    <div class="work-item">
+                        <a href="https://blendermarket.com/products/together-ai" target="_blank">
+                            <img src="./assets/motionai/motionai_img/togetherai.png" alt="Work 1">
+                            <p>Together Ai: All-In-One Ai Toolbox</p>
+                        </a>
+                    </div>
+                    <div class="work-item">
+                        <a href="https://blendermarket.com/products/generation-ai" target="_blank">
+                            <img src="./assets/motionai/motionai_img/generationai.jpg" alt="Work 2">
+                            <p>Generation Ai: State-Of-The-Art 3D Generator</p>
+                        </a>
+                    </div>
+                    <div class="work-item">
+                        <a href="https://blendermarket.com/products/depth-ai" target="_blank">
+                            <img src="./assets/motionai/motionai_img/depthai.png" alt="Work 3">
+                            <p>Depth Ai: Advanced Ai Depth Estimation Solution</p>
+                        </a>
+                    </div>
+                    <div class="work-item">
+                        <a href="https://blendermarket.com/products/material-ai" target="_blank">
+                            <img src="./assets/motionai/motionai_img/materialai.png" alt="Work 4">
+                            <p>Material Ai: Pbr Material Generator</p>
+                        </a>
+                    </div>
+                    <div class="work-item">
+                        <a href="https://blendermarket.com/products/edge-ai" target="_blank">
+                            <img src="./assets/motionai/motionai_img/edgeai.png" alt="Work 5">
+                            <p>Edge AI: Your Image Segmentation Master in Blender</p>
+                        </a>
+                    </div>
                 </div>
                 
             </div>
@@ -665,13 +735,13 @@
         
         <footer class="footer">
             <div class="footer-icons">
-                <a href="https://discord.com" target="_blank" class="icon-link">
+                <a href="https://discord.gg/7VRmstPvsP" target="_blank" class="icon-link">
                     <img src="./assets/motionai/motionai_img/discord-icon.svg" alt="Discord" class="icon-img">
                 </a>
-                <a href="https://yourdoclink.com" target="_blank" class="icon-link">
+                <a href="https://www.mornday.com/index.php/docs/motionai/motion-ai-manual-v2-0-0/" target="_blank" class="icon-link">
                     <img src="./assets/motionai/motionai_img/document (2).svg" alt="YouTube" class="icon-img">
                 </a>
-                <a href="https://youtube.com" target="_blank" class="icon-link">
+                <a href="https://www.youtube.com/watch?v=km2R-Vo6mDY" target="_blank" class="icon-link">
                     <img src="./assets/motionai/motionai_img/youtube-icon.svg" alt="Document" class="icon-img">
                 </a>
             </div>
