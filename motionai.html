@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .motionai {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #000000;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .comments h1,
+        .news h1{
+            font-size: 48px;
+            color: #ffffff;
+            z-index: 5;
+            position: relative;
+        }
+        .title h3 {
+            color: #ffffff;
+            z-index: 5;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-family: 'Courier New';
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .container-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 50px 10px;
+            margin: 30px 0;
+        }
+
+        .key-workflows {
+            display: flex;
+            gap: 20px;
+        }
+
+        .key-workflow {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border-left: 8px solid #007BFF;
+            font-size: 16px;
+            align-items: center;
+            justify-items: center;
+            
+        }
+
+        .news,
+        .comments {
+            max-width: 1000px;
+            background-color:rgba(255, 255, 255, 0.1);
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            backdrop-filter: blur(10px); 
+        }
+
+        .news h1 {
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: #f4f4f4;
+        }
+
+        .new {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background: rgb(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease-in-out;
+            border: #f4f4f4 solid 6px;
+        }
+
+        .icon-link:hover .icon-img,
+        .new:hover {
+            transform: scale(1.05); 
+        }
+
+        .new-text {
+            flex: 1;
+            font-size: 1.2rem;
+            padding-right: 20px;
+            line-height: 1.6;
+            text-align: justify;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+            
+        }
+
+        .new img {
+            width: 40%; 
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .comments h1 {
+            margin-bottom: 30px;
+            
+        }
+
+        .comment {
+            background-color:rgba(255, 255, 255, 0.623);
+            border-radius: 50px; 
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto; 
+            margin-bottom: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: justify;
+        }
+
+        .comment:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .show-comment {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            max-width: 90%; 
+        }
+
+        .rating span {
+            font-size: 1.5rem;
+        }
+
+        .key-features {
+            margin-top: 150px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .key-feature {
+            position: relative;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 10px;
+            background-size: cover;
+            background-position: center;
+            gap: 20px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .key-feature-text {
+            position: relative;
+            z-index: 5;
+            max-width: 80%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+        }
+
+        .key-feature-text h2 {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .key-feature-text p {
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .video {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video iframe {
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.75);;
+            border-radius: 35px;
+            min-height: 500px;
+            width: 100%;
+            margin-bottom: 20px;
+
+        }
+
+        .introduce {
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .introduce-text {
+            padding-top: 10px;
+        }
+
+        .introduce-text h1 {
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .introduce-text p {
+            font-size: 18px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .introduces{
+            justify-items: center;
+        }
+
+        .introduces button {
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            width: 800px;
+        }
+
+        .introduces button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 75, 43, 0.5);
+        }
+        
+        #document {
+            color: #f4f4f4;
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-family: 'Verdana';
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-end; 
+            padding: 20px;
+        }
+
+        .footer-icons {
+            display: flex;
+            gap: 15px; 
+        }
+
+        .icon-img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease; 
+            margin-right: 15px;
+            left: 0;
+            right: 0;
+        }
+
+        
+        .blur-img {
+            filter: blur(5px);
+            position: absolute;
+            object-fit: cover;
+        }
+
+        .upper-img {
+            height: 80%;
+            width: 80%;
+            position: relative;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .img-box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            position: relative;
+            z-index: 2;
+
+        }
+
+        .text-box {
+            z-index: 1;
+            text-align: right;
+            color: #f9f9f9;
+            position: absolute;
+            bottom: 10px;
+            right: 90px;
+            width: 500px;
+            font-family: 'Courier New';
+        }
+
+        .text-box h1 {
+            color: #f9f9f9;
+        }
+
+        .introduces .video iframe{
+            border: none;
+            width: 650px;
+            margin-top: -140px;
+            position: relative;
+            z-index: 1;
+
+        }
+
+        .box-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .key-workflow img {
+            width: 100%;
+        }
+
+        .requirement-items {
+            background-color:rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 50px 10px;
+            margin: 30px 0;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .requirement-item {
+            background-color:rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: row;
+            padding: 50px 10px;
+            margin: 30px 0;
+            border-radius: 20px;
+            width: 80%;
+
+        }
+        
+        .requirement-item-b {
+            margin-left: 20px;
+        }
+
+
+        .requirement-item-b p {
+            color: #a7a7a7;
+            line-height: 35px;
+            margin-right: 60px;
+            text-align: justify;
+        }
+
+        .requirement-item-b h2 {
+            color: rgb(221, 213, 213);
+        }
+
+        #requirement-item-img {
+            width: 100px;
+            height: 100px;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        .key-workflow p {
+            text-align: justify;
+            margin-left: 10px;
+        }
+
+        .key-workflow hr {
+            width: 80%;
+            background: linear-gradient(to right, #007BFF, #0056b3);
+            margin: 2px;
+        }
+
+        .tutorial {
+            justify-items: center;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="motionai">
+        <div class="container">
+            <div class="introduces">
+                <div class="introduce">
+                    <div class="img-box">
+                        <img src="./assets/motionai/motionai_img/first.gif" class="blur-img"/>
+                        <img src="./assets/motionai/motionai_img/first.gif" class="upper-img"/>
+                        <div class="text-box">
+                            <h1>MOTION AI</h1>
+                            <p>Motion AI is a powerful, streamlined addon designed to make motion capture easy for animators.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/km2R-Vo6mDY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <button onclick="window.open('https://www.mornday.com/index.php/docs/motionai/motion-ai-manual-v2-0-0/', '_blank')" >
+                    <h1 id="document">go to Motion AI Manual</h1>
+                </button>
+            </div>
+            <div class="container-box">
+                <h1>Key Workflows</h1>
+                <div class="key-workflows">
+                    <div class="key-workflow" style="width: 250px;">
+                        <div class="box-row">
+                            <img src="./assets/motionai/motionai_img/motion.svg" alt="motion" class="icon-img">
+                            <h2 style="color: #FFCC00;">Capture</h2>
+                        </div>
+                        <hr>
+                        <p>
+                            Pose capture for T-pose or A-pose human raw armature. 
+                            Face capture for ARKit standard.
+                        </p>
+                    </div>
+                    <div class="key-workflow" style="width: 250px;">
+                        <div class="box-row">
+                            <img src="./assets/motionai/motionai_img/modify.svg" alt="modify" class="icon-img">
+                            <h2 style="color: #FFCC00;">Modify</h2>
+                        </div>
+                        <hr>
+                        <p>
+                            Edit and improve capture results using IK/FK system.
+                        </p>
+                    </div>
+                    
+                    <div class="key-workflow" style="width: 250px;">
+                        <div class="box-row">
+                            <div class="img-box">
+                                <img src="./assets/motionai/motionai_img/remap.svg" alt="modify" class="icon-img" style="position: absolute;">
+                                <img src="./assets/motionai/motionai_img/remap.svg" alt="modify" class="icon-img" style="opacity: 0.78;">
+                            </div>
+                            <h2 style="color: #FFCC00;">Remap </h2>
+                        </div>
+                        <hr>
+                        <p>Transfer animation from other sources easily.</p>
+                    </div>
+                    
+                </div>
+                <div class="key-workflow">
+                    <img src="./assets/motionai/motionai_img/workflow.svg" style="border-radius: 15px;">
+                </div>
+            </div>
+            <div class="container-box">
+                <h1>Key Feature</h1>
+                <div class="key-feartues">
+                    <div class="key-feature" style="background-image: url('./assets/motionai/motionai_img/backgrounnd-capture.gif');">
+                        <div class="overlay"></div>
+                        <div class="key-feature-text">
+                            <h2>Self-research Armature Transfer Algorithm</h2>
+                            <p>Pose capture for T-pose or A-pose human raw armature.</p>
+                            <p>Face capture for ARKit standard.</p>
+                        </div>
+                    </div>
+                    <div class="key-feature" style="background-image: url('./assets/motionai/motionai_img/feature1.gif');">
+                        <div class="overlay"></div>
+                        <div class="key-feature-text">
+                            <h2> Bake Animation</h2>
+                            <p>Once the animation is baked</p> 
+                            <p> you can easily share your motion capture results with your collaborators.</p>
+                        </div>
+                        <div class="key-feature-text">
+                            <h2>Remapping</h2>
+                            <p>Easily copy animations from other motion capture sources to your own models.</p> 
+                        </div>
+                    </div>
+                    <div class="key-feature" style="background-image: url('./assets/motionai/motionai_img/feature3.gif');">
+                        <div class="overlay"></div>
+                        <div class="key-feature-text">
+                            <h2>Rig IK/FK System</h2>
+                            <p> Our IK/FK control system help you tune the motion capture result quickly.</p> 
+                        </div>
+                        <div class="key-feature-text">
+                            <h2> Self-research Fine-Tuning Algorithm</h2>
+                            <p> Our IK/FK control system help you tune the motion capture result quickly.</p> 
+                        </div>
+                    </div>
+                    <div class="key-feature" style="background-image: url('./assets/motionai/motionai_img/feature2.gif');">
+                        <div class="overlay"></div>
+                        <div class="key-feature-text">
+                            <h2>Advanced Motion Capture Technology</h2>
+                            <p> Leverage cutting-edge AI and post-processing optimization</p>
+                            <p>for highly accurate motion capture results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="requirements">
+                <h1>System Requirements</h1>
+                <h1> & Cooperation</h1>
+                <div class="requirement-items">
+                    <div class="requirement-item">
+                        <div class="box-row">
+                            <img src="./assets/motionai/motionai_img/system-icon.svg" alt="system-icon" class="icon-img" id="requirement-item-img">
+                            <div class="requirement-item-b">
+                                <h2>System Support</h2>
+                                <p><strong>Base:</strong> Windows x64 / Mac</p>
+                                <p><strong>Pro:</strong> Windows x64</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="box-row">
+                            <img src="./assets/motionai/motionai_img/cpu.svg" alt="cpu" class="icon-img" id="requirement-item-img">
+                            <div class="requirement-item-b">
+                                <h2>Hardware Requirement</h2>
+                                <p><strong>Base:</strong> CPU</p>
+                                <p><strong>Pro:</strong> Nvidia GPU (at least 8GB VRAM) with latest driver</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="box-row">
+                            <img src="./assets/motionai/motionai_img/cooperation.svg" alt="system-icon" class="icon-img" id="requirement-item-img">
+                            <div class="requirement-item-b">
+                                <h2>Further Cooperation</h2>
+                                <p>We provide additional <strong>state-of-the-art AI</strong>  motion capture algorithms and professional team support for motion capture. We also offer <strong>on-demand feature customization</strong> for add-on development. For pricing details, please contact us.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news">
+                <h1>LH News</h1>
+                <div class="new">
+                    <div class="new-text">We're excited to announce the release of Motion AI Pro V2, featuring the new LH II algorithm. 
+                        LH II algorithm introduces support for capturing spine and neck movements, making your animations smoother and more realistic. 
+                        The GIF below highlights the significant improvements in motion fluency between LH II and the earlier LH I algorithm.
+                    </div>
+                    <img src="./assets/motionai/motionai_img/1vs2.gif"/>
+                </div>
+
+                <div class="new">
+                    <div class="new-text">We're excited to announce the release of Motion AI Pro V2, featuring the new LH II algorithm. 
+                        LH II algorithm introduces support for capturing spine and neck movements, making your animations smoother and more realistic. 
+                        The GIF below highlights the significant improvements in motion fluency between LH II and the earlier LH I algorithm.
+                    </div>
+                    <img src="./assets/motionai/motionai_img/bones.png"/>
+                </div>
+            </div>
+            <div class="comments">
+                <h1>Comments from customers</h1>
+                <div class="comment">
+                    <div class="name">Evan</div>
+                    <div class="show-comment">
+                        This add-on seems so great for me. 
+                        It definitely simplifies so much the process of motion capture success. 
+                        It brings so much pleasure. I just can't wait to use it on my coming projects. 
+                        PLUS, the service is far beyond expectation, my support request can always get very quick response, 
+                        which really helps me a lot! Thanks for the creator!!
+                    </div>
+                    <div class="rating">
+                        <span>⭐⭐⭐⭐⭐</span> 
+                    </div>
+                </div>
+            
+                <div class="comment">
+                    <div class="name">Pierre-Louis</div>
+                    <div class="show-comment">
+                        Great Tool, 
+                        easy to use and tinker with it (I did not watch much of the tutorial on my first use) 
+                        and if one day it supports any armature it will be even greater.
+                    </div>
+                    <div class="rating">
+                        <span>⭐⭐⭐⭐⭐</span> 
+                    </div>
+                </div>
+            </div>
+            <div class="tutorial">
+                <h1>Tutorials</h1>
+                <div class="video">
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/tcJCQBQAIok" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/324PquPvp90" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/kY-7lkRyr2k" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+                
+            </div>
+            <div class="tutorial">
+                <h1>Our Related Work</h1>
+                <div class="video">
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/tcJCQBQAIok" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/324PquPvp90" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/kY-7lkRyr2k" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </div>
+                
+            </div>
+
+        </div>
+
+        <hr style="margin: 50px;">
+        
+        <footer class="footer">
+            <div class="footer-icons">
+                <a href="https://discord.com" target="_blank" class="icon-link">
+                    <img src="./assets/motionai/motionai_img/discord-icon.svg" alt="Discord" class="icon-img">
+                </a>
+                <a href="https://yourdoclink.com" target="_blank" class="icon-link">
+                    <img src="./assets/motionai/motionai_img/document (2).svg" alt="YouTube" class="icon-img">
+                </a>
+                <a href="https://youtube.com" target="_blank" class="icon-link">
+                    <img src="./assets/motionai/motionai_img/youtube-icon.svg" alt="Document" class="icon-img">
+                </a>
+            </div>
+        </footer>
+            
+        
+    </div>
+    
+    
+
+    <script>
+        
+    </script>
+</body>
+</html>
+
+
+

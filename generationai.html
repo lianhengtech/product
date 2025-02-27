@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generation AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .generation {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #E9E9E9;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            margin-top: 60px;
+        }
+
+        h1 {
+            font-family:'Courier New';
+
+        }
+
+        .video {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video iframe {
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.75);;
+            border-radius: 35px;
+            min-height: 500px;
+            width: 100%;
+            margin-bottom: 20px;
+
+        }
+
+        
+        #document {
+            color: #f4f4f4;
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-family: 'Verdana';
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-end; 
+            padding: 20px;
+        }
+
+        .footer-icons {
+            display: flex;
+            gap: 15px; 
+        }
+
+        .icon-img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease; 
+            margin-right: 15px;
+            left: 0;
+            right: 0;
+        }
+
+        .introduces .video iframe{
+            border: none;
+            width: 650px;
+            margin-top: -60px;
+            position: relative;
+            z-index: 1;
+
+        }
+
+        .img-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            padding-top: 100px;
+        }
+
+        .blur-img {
+            filter: blur(5px);
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .upper-img {
+            height: 60%;
+            width: 60%;
+            position: relative;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-right: 260px;
+            border: #eef6ff solid 2px;
+        }
+
+        .text-box {
+            z-index: 1;
+            position: absolute;
+            text-align: center;
+            background-color: #EEECD6;
+            width: 250px;
+            height: 100%;
+            font-family: 'Courier New';
+            right: 0;
+            padding: 10px;
+            
+        }
+
+        .introduces button {
+            margin-top: 128px;
+            margin-bottom: 0;
+
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            width: 800px;
+        }
+
+        .introduces button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(255, 75, 43, 0.5);
+        }
+
+        .key-features {
+            margin-top: 150px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        #key-feature-a-img {
+            padding: 10px;
+            
+        }
+
+
+        #key-feature-a-img img {
+            width: 300px;
+        }
+
+        .text-box-b {
+            margin-left: 80px;
+            margin-top: 200px;
+        }
+
+        .text-box-b p {
+            width: 200px;
+        }
+        
+        .text-box-c {
+            width: 300px;
+        }
+
+        .background-img {
+            position: relative;
+            width: 80%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+
+        .key-feature-b .text-box-b {
+            z-index: 1;
+            text-align: center;
+            color: #f9f9f9;
+            position: absolute;
+            font-family: 'Courier New';
+            border-radius: 25px;
+            right: 330px;
+            bottom: 300px;
+        }
+
+        .container-box {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 50px 10px;
+            margin: 30px 0;
+        }
+
+        .key-workflow {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border-left: 8px solid #007BFF;
+            font-size: 16px;
+            align-items: center;
+            justify-items: center;
+            
+        }
+
+        .key-workflow img {
+            width: 100%;
+        }
+
+        .requirement-items {
+            background-color:rgba(255, 255, 255, 0.349);
+            display: flex;
+            flex-direction: column;
+            padding: 50px 10px;
+            margin: 30px 0;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .requirement-item {
+            background-color:rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: row;
+            padding: 50px 10px;
+            margin: 30px 0;
+            border-radius: 20px;
+            width: 80%;
+
+        }
+        
+        .requirement-item-b {
+            margin-left: 20px;
+        }
+
+
+        .requirement-item-b p {
+            color: #a7a7a7;
+            line-height: 35px;
+            margin-right: 60px;
+            text-align: justify;
+        }
+
+        .requirement-item-b h2 {
+            color: rgb(221, 213, 213);
+        }
+
+        #requirement-item-img {
+            width: 100px;
+            height: 100px;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        .box-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .comments {
+            max-width: 1000px;
+            background-color:rgba(255, 255, 255, 0.1);
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            backdrop-filter: blur(10px); 
+        }
+
+        .comments h1 {
+            color: #7F0909;
+        }
+
+        .comment {
+            background-color:rgba(255, 255, 255, 0.623);
+            border-radius: 50px; 
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto; 
+            margin-bottom: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: justify;
+        }
+
+        .comment:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .show-comment {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+            max-width: 90%; 
+        }
+
+        .rating span {
+            font-size: 1.5rem;
+        }
+
+        .video {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video iframe {
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.75);;
+            border-radius: 35px;
+            min-height: 500px;
+            width: 80%;
+            margin-bottom: 20px;
+
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-end; 
+            padding: 20px;
+        }
+
+        .footer-icons {
+            display: flex;
+            gap: 15px; 
+        }
+
+        .icon-img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease; 
+            margin-right: 15px;
+            left: 0;
+            right: 0;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="generation">
+        <div class="containers">
+            <div class="introduces">
+                <div class="introduce">
+                    <div class="img-box">
+                        <img src="./assets/generationai/generationai_img/house.gif" class="blur-img"/>
+                        <img src="./assets/generationai/generationai_img/house.gif" class="upper-img"/>
+                        <div class="text-box">
+                            <h1>Generation AI </h1>
+                            <p>Generation AI is an advanced solution for generating 3D mesh automatically in Blender. With the power of cutting-edge AI, it can generate images and mesh corresponding to different styles of images with minimal effort.</p>
+                        </div>
+                    </div>
+                    <div class="video">
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/-D2_Xnpigsk" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <h1>Key</h1>
+                <h1>Features</h1>
+                <div class="key-features">
+                    <div class="key-feature-a">
+                        <div class="img-box" id="key-feature-a-img">
+                            <img src="./assets/generationai/generationai_img/boy1.png" alt="boy1">
+                            <div class="text-box-b">
+                                <h2 style="color: #A26C08;">Quick 3D Generation</h2>
+                                <p style="color: #6E775B;">Automatically generates 3D meshs from images, reducing manual work.</p>
+                            </div>
+                        </div>
+                        <div class="img-box" id="key-feature-a-img">
+                            <div class="text-box-c">
+                                <h2 style="color: #A6493D;">Mesh Material Repainting</h2>
+                                <p style="color: #A2978D;">Generate mesh with different texture based on different style images of the same object.</p>
+                            </div>
+                            <img src="./assets/generationai/generationai_img/ninja.png" alt="boy1">
+                            
+                        </div>
+                    </div>
+                    <div class="key-feature-b">
+                        <div class="img-box" style="padding-top: 10px;">
+                            <img src="./assets/generationai_img/robot.gif" alt="avocado" class="background-img">
+                            <div class="text-box-b">
+                                <h2 style="color: #695442;">Upscale Texture</h2>
+                                <p style="color: #A0A8AD;">Generates higher resolution texture with added detail and clarity.</p>
+                            </div>
+                        </div>
+                        <div class="img-box" style="padding-top: 10px;">
+                            <img src="./assets/generationai/generationai_img/avocado.gif" alt="avocado" class="background-img">
+                            <div class="text-box-b" >
+                                <h2 style="color: #ABBA81;">Upscale Texture</h2>
+                                <p style="color: #5A6048;">Generates higher resolution texture with added detail and clarity.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="container">
+                <h1>Key</h1>
+                <h1>Workflows</h1>
+                
+                <div class="key-workflow">
+                    <img src="./assets/generationai/generationai_img/workflow.png" style="border-radius: 15px;">
+                </div>
+            </div>
+
+            <div class="container">
+                <h1>System Requirements</h1>
+                <h1> & Cooperation</h1>
+                <div class="requirement-items">
+                    <div class="requirement-item">
+                        <div class="box-row">
+                            <img src="./assets/generationai/generationai_img/system-icon.svg" alt="system-icon" class="icon-img" id="requirement-item-img">
+                            <div class="requirement-item-b">
+                                <h2>System Support</h2>
+                                <p><strong>OS:</strong> Windows x64</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="box-row">
+                            <img src="./assets/generationai/generationai_img/cpu.svg" alt="cpu" class="icon-img" id="requirement-item-img">
+                            <div class="requirement-item-b">
+                                <h2>Hardware Requirement</h2>
+                                <p><strong>Hardware:</strong> Nvidia GPU with at least 8GB VRAM.</p>
+                                <p><strong>Disk:</strong>24GB</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="box-row">
+                            <img src="./assets/generationai/generationai_img/cooperation.svg" alt="system-icon" class="icon-img" id="requirement-item-img">
+                            <div class="requirement-item-b">
+                                <h2>Further Cooperation</h2>
+                                <p>We provide additional <strong>state-of-the-art AI</strong>  motion capture algorithms and professional team support for motion capture. We also offer <strong>on-demand feature customization</strong> for add-on development. For pricing details, please contact us.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="requirement-item">
+                        <div class="box-row">
+                            <img src="./assets/generationai/generationai_img/License.svg" alt="system-icon" class="icon-img" id="requirement-item-img">
+                            <div class="requirement-item-b">
+                                <h2>Model License</h2>
+                                <p>The model for 3D generation is provided under <strong>Stability AI Community License</strong>,you download the model with agreement with the Stability AI Community License. 
+                                    It is <strong>free</strong> for commercial use if your annual revenue is <strong>under 1 million USD</strong> For commercial use exceeding 1 million USD in annual revenue, a enterprise license from Stability AI is required. Please visit Stability AI license website.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">                
+                <div class="comments">
+                    <h1 >Comments</h1>
+                    <h1>from customers</h1>
+                    <div class="comment">
+                        <div class="name">Evan</div>
+                        <div class="show-comment">
+                            This add-on seems so great for me. 
+                            It definitely simplifies so much the process of motion capture success. 
+                            It brings so much pleasure. I just can't wait to use it on my coming projects. 
+                            PLUS, the service is far beyond expectation, my support request can always get very quick response, 
+                            which really helps me a lot! Thanks for the creator!!
+                        </div>
+                        <div class="rating">
+                            <span>⭐⭐⭐⭐⭐</span> 
+                        </div>
+                    </div>
+                
+                    <div class="comment">
+                        <div class="name">Pierre-Louis</div>
+                        <div class="show-comment">
+                            Great Tool, 
+                            easy to use and tinker with it (I did not watch much of the tutorial on my first use) 
+                            and if one day it supports any armature it will be even greater.
+                        </div>
+                        <div class="rating">
+                            <span>⭐⭐⭐⭐⭐</span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="tutorial">
+                    <h1>Tutorials</h1>
+                    <div class="video">
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/6RXGANPcZpY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+                    </div>
+                    
+                </div>
+                <div class="tutorial">
+                    <h1>Our Related Work</h1>
+                    <div class="video">
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/4S8ExcGJZZo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/Ra7RXnGPF9c" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/iHUZqf-lZ9I" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/WkW5y9mqDlg" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="margin: 50px;">
+        
+        <footer class="footer">
+            <div class="footer-icons">
+                <a href="https://discord.com" target="_blank" class="icon-link">
+                    <img src="./assets/generationai/generationai_img/discord-icon.svg" alt="Discord" class="icon-img">
+                </a>
+                <a href="https://yourdoclink.com" target="_blank" class="icon-link">
+                    <img src="./assets/generationai/generationai_img/document (2).svg" alt="YouTube" class="icon-img">
+                </a>
+                <a href="https://youtube.com" target="_blank" class="icon-link">
+                    <img src="./assets/generationai/generationai_img/youtube-icon.svg" alt="Document" class="icon-img">
+                </a>
+            </div>
+        </footer>
+
+        
+    </div>
+    
+    
+
+    <script>
+        
+    </script>
+</body>
+</html>
+
+
+
