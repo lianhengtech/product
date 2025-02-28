@@ -490,6 +490,103 @@
             color: #ffffff;
         }
 
+        @media (max-width: 480px) {
+            body {
+                width: 100%;
+            }
+
+            .motionai {
+                max-width: 100%;
+            }
+
+            .blur-img {
+                filter: blur(5px);
+                position: absolute;
+                object-fit: cover;
+                width: 100%;
+
+            }
+
+            .introduce {
+                padding: 10px;
+            }
+
+            .key-workflows {
+                flex-direction: column;  
+            }
+
+            .introduces button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(255, 75, 43, 0.5);
+            }
+
+            .introduces button {
+                padding: 8px;
+                margin-top: 8px;
+                margin-bottom: 0;
+                font-weight: bold;
+                color: white;
+                background: linear-gradient(45deg, #ff416c, #ff4b2b);
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                width: 250px;
+            }
+
+            .introduces .video iframe{
+                width: 100%;
+                margin-top: 10px;
+                
+            }
+
+            .key-workflow {
+                width: 100%; 
+                padding: 10px;
+            }
+
+            .news, .comments {
+                margin: 20px auto;
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .new, .comment {
+                flex-direction: column; 
+                padding: 10px;
+            }
+
+            .key-features {
+                grid-template-columns: 1fr; 
+            }
+
+            .key-feature {
+                height: auto; 
+                padding: 10px;
+            }
+
+            .video iframe {
+                min-height: 300px;
+                width: 100%;
+            }
+
+            .footer {
+                justify-content: center;  
+            }
+
+            .footer-icons {
+                gap: 10px; 
+            }
+
+            .video,
+            .work-item {
+                width: 100%; 
+                margin-bottom: 10px;
+            }
+
+        
+        }
+
 
 
     </style>
