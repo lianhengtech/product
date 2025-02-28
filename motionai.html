@@ -11,7 +11,7 @@
             padding: 0;
             background-color: #ffffff;
             color: #333;
-            max-width: 694px;
+            max-width: 100%;
         }
 
         .motionai {
@@ -336,12 +336,11 @@
             filter: blur(5px);
             position: absolute;
             object-fit: cover;
-            width: 694px;
+            width: 100%;
         }
 
         .upper-img {
-            height: 80%;
-            width: 90%;
+            width: 80%;
             position: relative;
             border-radius: 15px;
             object-fit: cover;
@@ -363,9 +362,10 @@
             text-align: right;
             color: #f9f9f9;
             position: absolute;
-            bottom: 10px;
-            right: 40px;
             font-family: 'Courier New';
+            justify-items: right;
+            padding: 20px;
+            bottom: 10px;
         }
 
         .text-box h1 {
@@ -373,9 +373,7 @@
         }
 
         .text-box p {
-            width: 300px;
-            bottom: 10px;
-            right: 40px;
+            width: 80%;
         }
 
         .introduces .video iframe{
@@ -490,13 +488,9 @@
             color: #ffffff;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 700px) {
             body {
                 width: 100%;
-            }
-
-            .motionai {
-                max-width: 100%;
             }
 
             .blur-img {
@@ -582,6 +576,12 @@
             .work-item {
                 width: 100%; 
                 margin-bottom: 10px;
+            }
+
+            .box-row {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
         
